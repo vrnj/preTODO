@@ -3,7 +3,8 @@ import internal from "stream"
 type PropsType = {
     hat?: string,
     cuteHat?: string,
-    tasks: Array<TaskType>
+    tasks: Array<TaskType>,
+    deleteTask: Function
 }
 
 type TaskType = {
@@ -29,7 +30,10 @@ export const Todolist = (props: PropsType) => {
                     <ul>                  
                     {props.tasks.map(task => {
                         return (
-                             <li key={task.id}><input type="checkbox" checked={task.isDone}/> <span>{task.title}</span></li>
+                             <li key={task.id}>
+                                <input type="checkbox" checked={task.isDone}/> <span>{task.title}</span>
+                                <button onClick={()=> { props.deleteTask(task.id)}}>x</button> 
+                             </li>
                         )
                     })}
                    
