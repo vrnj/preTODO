@@ -18,9 +18,13 @@ function App() {
 
     //useState(initTasks); //is imported from React
 
-    let stateArray = useState(initTasks);
-    let tasks = stateArray[0]; //the copy of the initial array
-    let setTasks = stateArray[1]; //the function that is capable of managing the initial array after setTasks was called inside any other function changing the array
+    //let stateArray = useState(initTasks);
+    let [tasks, setTasks] = useState(initTasks);
+    // let tasks = stateArray[0]; //the copy of the initial array
+    // let setTasks = stateArray[1]; //the function that is capable of managing the initial array after setTasks was called inside any other function changing the array
+
+    //let [tasks, setTasks] = stateArray; //using the destructor
+
 
     function deleteTask(id: number) {
             let filteredTasks = tasks.filter(task => task.id !== id
